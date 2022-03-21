@@ -7,14 +7,13 @@ const Filter = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData,setFilteredData]=useState([])
   
-    const getData=async()=>{
+    const getInitialData=async()=>{
       let res=await   axios.get("https://jsonplaceholder.typicode.com/todos");
       setData(res.data);
-      // console.log("mount")
     }
-    useEffect(()=>{
-      getData();
-    },[])
+      useEffect(()=>{
+        getinitialData();
+      },[])
  
     useEffect(()=>{
       

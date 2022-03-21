@@ -30,6 +30,7 @@ const Todo = () => {
     }
    
         const adddata=()=>{
+            
             console.log("add data");
             if(edit==true){
                 const updateData=[...data];
