@@ -1,0 +1,15 @@
+.todo{
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: rgb(238, 232, 225);
+    display: flex;
+    justify-content:center;
+}
+.cardcomp{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    @media screen and (max-width:800px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
