@@ -12,7 +12,7 @@ const Filter = () => {
       setData(res.data);
     }
       useEffect(()=>{
-        getinitialData();
+        getInitialData();
       },[])
  
     useEffect(()=>{
@@ -41,9 +41,6 @@ const Filter = () => {
           onChange={handleChange}
         />
             </div>
-            
-
-              
               {
                
                 filteredData.map(item=>{
@@ -54,8 +51,6 @@ const Filter = () => {
                   )})
               }
 
-
-  
             </div>
   )
 }

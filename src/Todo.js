@@ -1,6 +1,8 @@
 import { Button } from '@material-ui/core';
 import React, { useEffect, useState } from 'react'
 import Cardcomp from './components/Cardcomp';
+import TodoContainer from './components/TodoContainer';
+
 import "./todo.css";
 
 
@@ -68,26 +70,26 @@ const Todo = () => {
         <label>
         Title
         <br></br>
-        <input type="text" value={title} onChange={e=>setTitle(e.target.value)}></input>
+        <input className='textbox' type="text" value={title} onChange={e=>setTitle(e.target.value)}></input>
         </label>
         <br></br>
         <label>
         Subtitle
         <br></br>
-        <input type="text" value={subtitle} onChange={e=>setSubtitle(e.target.value)}></input>
+        <input className='textbox' type="text" value={subtitle} onChange={e=>setSubtitle(e.target.value)}></input>
         </label>
         <br></br>
         <label>
        ImageURL
        <br></br>
-       <input type="text" value={image} onChange={e=>setImage(e.target.value)}></input>
+       <input className='textbox' type="text" value={image} onChange={e=>setImage(e.target.value)}></input>
         </label>
         <br></br>
         {
             edit ?(
-                <button onClick={adddata}>Edit Todo</button>
+                <button className='button' onClick={adddata}>Edit Todo</button>
             ):(
-                <button onClick={adddata}>Submit</button>
+                <button className='button' onClick={adddata}>Submit</button>
             )
         }
         
@@ -98,15 +100,20 @@ const Todo = () => {
     <div className='cardcomp'>
             {
                 data.map((arr)=>(
-                    <Cardcomp
-                    key={arr.Id}
-                    index={arr.Id}
-                    title={arr.Title}
-                    subtitle={arr.Subtitle}
-                    image={arr.Image}
-                    handleDelete={handleDelete}
-                    handleUpdate={handleUpdate}
-                    ></Cardcomp>
+                    
+                    <TodoContainer
+                        key={arr.Id}
+                        index={arr.Id}
+                        title={arr.Title}
+                        subtitle={arr.Subtitle}
+                        image={arr.Image}
+                        handleDelete={handleDelete}
+                        handleUpdate={handleUpdate}
+                    
+                    ></TodoContainer>
+                   
+
+            
                    
                 ))
             }
@@ -116,4 +123,16 @@ const Todo = () => {
   )
 }
 
-export default Todo
+export default Todo;
+
+
+
+{/* <Cardcomp
+                    key={arr.Id}
+                    index={arr.Id}
+                    title={arr.Title}
+                    subtitle={arr.Subtitle}
+                    image={arr.Image}
+                    handleDelete={handleDelete}
+                    handleUpdate={handleUpdate}
+                    ></Cardcomp> */}

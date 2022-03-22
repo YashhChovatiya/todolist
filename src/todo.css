@@ -4,12 +4,30 @@
     background-color: rgb(238, 232, 225);
     display: flex;
     justify-content:center;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    justify-content: space-between;
+    align-self: center;
 }
 .cardcomp{
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     @media screen and (max-width:800px) {
         display: grid;
         grid-template-columns: 1fr 1fr;
-    }
+    } */
+    display: flex;
+    flex-direction: column;
+   
+}
+.button{
+    height: 30px;
+    width: 80px;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.textbox{
+    border-radius: 10px;
+    border: 1px solid black;
 }
