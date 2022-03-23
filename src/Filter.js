@@ -1,28 +1,30 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import SearchBar from "./components/SearchBar";
+import useDebounce from './components/useDebounce';
 
 const Filter = () => {
   const[data,setData]=useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData,setFilteredData]=useState([])
-  
+  const dobouncedSearchterm=useDebounce(searchTerm,1000);
     const getInitialData=async()=>{
       let res=await   axios.get("https://jsonplaceholder.typicode.com/todos");
       setData(res.data);
+      setFilteredData(res.data);
     }
       useEffect(()=>{
         getInitialData();
       },[])
  
     useEffect(()=>{
-      
+      console.log("called");
       const temp = (data).filter((item) =>
-      item.title.toLowerCase().includes(searchTerm.toLowerCase())
+      item.title.toLowerCase().includes(dobouncedSearchterm.toLowerCase())
       );
-      console.log("temp",temp);
+      
       setFilteredData(temp);
-    },[searchTerm])
+    },[dobouncedSearchterm])
 
     const handleChange = (event) => {
       setSearchTerm(event.target.value);
@@ -41,15 +43,17 @@ const Filter = () => {
           onChange={handleChange}
         />
             </div>
-              {
+            <ol>
+            {
                
-                filteredData.map(item=>{
-                  return(
-                    <div>
-                    <h1>{item.title}</h1>
-                    </div>
-                  )})
-              }
+               filteredData.map(item=>(
+                <li>{item.title}</li>
+               )
+                 
+                )
+             }
+            </ol>
+              
 
             </div>
   )
