@@ -12,8 +12,11 @@ function App() {
   return (
     
       <div>
-      <a href="/todo">TodoList</a>
-      <a href="/filter">Filter</a>
+      <div className='Button'>
+          <a href="/todo" >TodoList</a>
+          <a href="/filter">Filter</a>
+      </div>
+     
       {/* <SimpleTabs></SimpleTabs> */}
       {/* <button onClick={changeTodo}>Todo list</button>
       <button onClick={changeFilter}>Filter option</button> */}
